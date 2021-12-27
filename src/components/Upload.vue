@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white rounded border border-gray-200 relative flex flex-col">
           <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-            <span class="card-title">Upload</span>
+            <span class="card-title">{{ $t('manage.upload') }}</span>
             <i class="fas fa-upload float-right text-green-400 text-2xl"></i>
           </div>
           <div class="p-6">
@@ -62,6 +62,19 @@ export default {
         if (file.type !== 'audio/mpeg') {
           return;
         }
+
+        if (!navigator.onLine) {
+          this.uploads.push({
+            task: {},
+            current_progress: 100,
+            name: file.name,
+            variant: 'bg-red-400',
+            icon: 'fas fa-times',
+            text_class: 'bg-red-400',
+          });
+          return;
+        }
+
         const storageRef = fb.ref(fb.storage, `songs/${file.name}`);
         const task = fb.uploadBytesResumable(storageRef, file);
         const uploadIndex = this.uploads.push({
