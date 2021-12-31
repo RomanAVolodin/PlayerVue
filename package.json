@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:unit:update": "vue-cli-service test:unit -u",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
@@ -15,6 +16,7 @@
     "@vee-validate/rules": "^4.5.7",
     "autoprefixer": "^9",
     "core-js": "^3.6.5",
+    "cypress": "9.2.0",
     "firebase": "^9.6.1",
     "howler": "^2.2.3",
     "lodash": "^4.17.21",
